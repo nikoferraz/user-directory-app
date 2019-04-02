@@ -1,5 +1,6 @@
 <?php
-require "../common.php";
+require "config/functions.php";
+require "config/db_config.php";
 if (isset($_POST['submit'])) {
     try  {
         $connection = new PDO($dsn, $username, $password, $options);
@@ -22,7 +23,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 <?php 
-require "../templates/header.php";
+require "templates/header.php";
 if (isset($_POST['submit']) && $sql_command) : 
 ?>
 <p><?php echo escape($_POST['first_name']); ?> was added to the database.</p>
@@ -39,4 +40,4 @@ if (isset($_POST['submit']) && $sql_command) :
         <input type="password" name="password" id="password">
         <input type="submit" name="submit" value="Submit">
     </form>
-<?php require "../templates/footer.php"; ?>
+<?php require "templates/footer.php"; ?>

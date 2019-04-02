@@ -1,4 +1,16 @@
-<?php require "../templates/header.php"; ?>     
+<?php
+require "../config.php";
+try {
+    $connection = new PDO($dsn, $username, $password, $options);
+    $sql = "SELECT * FROM users";
+    $sql_command = $connection->prepare($sql);
+    $sql_command->execute();
+    $result = $sql_command->fetchAll();
+} catch(PDOException $error) {
+  echo $sql . "<br>" . $error->getMessage();
+}
+?>
+<?php require "templates/header.php"; ?>      
 <h1>Update users</h1>
 <table>
     <thead>
@@ -25,4 +37,4 @@
     <?php endforeach; ?>
     </tbody>
 </table>
-<?php require "../templates/footer.php"; ?>
+<?php require "templates/footer.php"; ?>

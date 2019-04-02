@@ -3,7 +3,6 @@
     "description": "A simple user directory app.",
     "type": "project",
     "require": {
-        "robmorgan/phinx": "^0.10.6",
         "phpunit/phpunit": "^8.0"
     },
     "authors": [
